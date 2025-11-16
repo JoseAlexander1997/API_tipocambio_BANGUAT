@@ -1,0 +1,13 @@
+<?php
+
+
+use App\Http\Controllers\Admin\TipoCambiosController;
+
+use Illuminate\Support\Facades\Route;
+
+Route::get('/', function(){
+    return view('admin.dashboard');
+})->name('dashboard');
+
+
+
