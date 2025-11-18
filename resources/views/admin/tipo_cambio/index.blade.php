@@ -22,13 +22,27 @@
 
     {{-- MENSAJES --}}
     @if(session('error'))
-        <div class="alert alert-danger mb-3">
+        <div 
+            x-data="{ show: true }" 
+            x-init="setTimeout(() => show = false, 5000)" 
+            x-show="show"
+            x-transition
+            class="flex items-center p-4 mb-4 text-red-800 border border-red-300 rounded-lg bg-red-50"
+            role="alert"
+        >
             {{ session('error') }}
         </div>
     @endif
 
     @if(session('exito'))
-        <div class="alert alert-success mb-3 bg-ingo-50">
+        <div 
+            x-data="{ show: true }" 
+            x-init="setTimeout(() => show = false, 5000)" 
+            x-show="show"
+            x-transition
+            class="flex items-center p-4 mb-4 text-green-800 border border-green-300 rounded-lg bg-green-50"
+            role="alert"
+        >
             {{ session('exito') }}
         </div>
     @endif
@@ -60,12 +74,7 @@
 @endif
 
 {{-- TABLA DE ÚLTIMAS CONSULTAS --}}
-@livewire('admin.datatables.tipocambios-table')
-
-
-
-
-   
+@livewire('admin.datatables.tipocambios-table')   
    
     @push('css')
         <style>

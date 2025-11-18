@@ -12,7 +12,7 @@
             'icon' => 'fa-solid fa-exchange-alt',
             'href' => route('admin.tipo-cambio.index'),
             'active' => request()->routeIs('admin.dashboard'),
-        ],
+        ]
 
         
 
