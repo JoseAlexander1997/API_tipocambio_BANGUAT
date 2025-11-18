@@ -1,5 +1,5 @@
 <x-admin-layout
-title="Dashboard | Codersfree"
+title="Dashboard | Tipo de cambio"
 :breadcrumbs="[
     [
         'name' => 'Dashboard',
