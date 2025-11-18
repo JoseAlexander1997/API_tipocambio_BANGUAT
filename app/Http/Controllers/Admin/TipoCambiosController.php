@@ -22,24 +22,24 @@ class TipoCambiosController extends Controller
     }
 
     public function consultar(TipoCambioService $service)
-{
-    $resultado = $service->obtenerTipoCambioDia();
+    {
+        $resultado = $service->obtenerTipoCambioDia();
 
-    if (isset($resultado['error'])) {
-        return back()->with('error', $resultado['mensaje']);
+        if (isset($resultado['error'])) {
+            return back()->with('error', $resultado['mensaje']);
+        }
+
+        // Convertir fecha a formato MySQL
+        $fechaMySQL = Carbon::createFromFormat('d/m/Y', $resultado['fecha'])->format('Y-m-d');
+
+        TipoCambio::create([
+            'fecha_consulta'   => now(),
+            'fecha_tipo_cambio'=> $fechaMySQL,
+            'tipo_cambio'      => $resultado['tipo_cambio'],
+            'origen_api'       => $resultado['origen']
+        ]);
+
+        return redirect()->route('admin.tipo-cambio.index')
+                        ->with('exito', 'Consulta realizada correctamente.');
     }
-
-    // Convertir fecha a formato MySQL
-    $fechaMySQL = Carbon::createFromFormat('d/m/Y', $resultado['fecha'])->format('Y-m-d');
-
-    TipoCambio::create([
-        'fecha_consulta'   => now(),
-        'fecha_tipo_cambio'=> $fechaMySQL,
-        'tipo_cambio'      => $resultado['tipo_cambio'],
-        'origen_api'       => $resultado['origen']
-    ]);
-
-    return redirect()->route('admin.tipo-cambio.index')
-                     ->with('exito', 'Consulta realizada correctamente.');
-}
 }

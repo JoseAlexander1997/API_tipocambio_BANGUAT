@@ -14,6 +14,7 @@ class TipocambiosTable extends DataTableComponent
     public function configure(): void
     {
         $this->setPrimaryKey('id');
+        $this->setDefaultSort('id','desc');
     }
 
     public function columns(): array

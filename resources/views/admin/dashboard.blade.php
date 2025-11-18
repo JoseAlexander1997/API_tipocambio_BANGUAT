@@ -4,22 +4,13 @@ title="Dashboard | Tipo de cambio"
     [
         'name' => 'Dashboard',
         'href' => route('admin.dashboard'),
-    ],
-    [
-        'name' => 'Pruebas',
-    ],
+    ],   
     
 ]">
 
-<x-slot name="action">
-    Hola mundo
-</x-slot>
 
-<x-wire-button>
-    Prueba
-</x-wire-button>
 
-Hola desde el admin2
+Bienvenido al aplicativo para tipo de Cambios en Guatemala, que consume servicios del BANGUAT.
 
     
 

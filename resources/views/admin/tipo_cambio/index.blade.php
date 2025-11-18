@@ -28,7 +28,7 @@
     @endif
 
     @if(session('exito'))
-        <div class="alert alert-success mb-3">
+        <div class="alert alert-success mb-3 bg-ingo-50">
             {{ session('exito') }}
         </div>
     @endif
@@ -42,12 +42,12 @@
         $bajo  = $anterior ? $ultimo->tipo_cambio < $anterior->tipo_cambio : null;
     @endphp
 
-    <div class="mb-4 p-4 rounded shadow flex items-center justify-between
+    <div class="mb-4 p-4 rounded shadow flex items-center justify-between bg-info-100
         {{ $subio ? 'bg-green-100 text-green-800' : ($bajo ? 'bg-red-100 text-red-800' : 'bg-gray-100 text-gray-800') }}">
         <div>
             <strong>Último Tipo de Cambio:</strong>
             <span class="ml-2">{{ $ultimo->tipo_cambio }}</span>
-            <small class="ml-2">(Fecha: {{ \Carbon\Carbon::parse($ultimo->fecha_tipo_cambio)->format('d/m/Y') }})</small>
+            <small class="ml-2">(Fecha: {{ \Carbon\Carbon::parse($ultimo->fecha_tipo_cambio)->format('d/m/Y h:m:s') }})</small>
         </div>
         @if($subio)
             <span class="font-bold text-green-700">▲ Subió</span>
