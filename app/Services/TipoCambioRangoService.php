@@ -4,6 +4,7 @@ namespace App\Services;
 
 use SoapClient;
 use Exception;
+use Carbon\Carbon;
 
 class TipoCambioRangoService
 {
@@ -18,29 +19,36 @@ class TipoCambioRangoService
     }
 
     /**
-     * Consulta un rango de tipo de cambio
-     *
-     * @param string $fechaInicial formato d/m/Y
-     * @param string $fechaFinal formato d/m/Y
-     * @return array
+     * Obtiene el tipo de cambio entre 2 fechas (BANGUAT no acepta fechaFinal)
+     * Se filtra en PHP
      */
     public function consultarRango($fechaInicial, $fechaFinal)
     {
         try {
+            // ❗ BANGUAT SOLO ACEPTA fechainit
             $response = $this->client->TipoCambioFechaInicial([
-                'fechainit' => $fechaInicial,
-                'fechafinal'=> $fechaFinal
+                'fechainit' => $fechaInicial
             ]);
 
             $result = $response->TipoCambioFechaInicialResult->Vars->Var;
 
             $datos = [];
+
+            $inicio = Carbon::createFromFormat('d/m/Y', $fechaInicial);
+            $fin    = Carbon::createFromFormat('d/m/Y', $fechaFinal);
+
             foreach ($result as $item) {
-                $datos[] = [
-                    'fecha_tipo_cambio' => (string) $item->fecha,
-                    'compra'            => (float) $item->compra,
-                    'venta'             => (float) $item->venta,
-                ];
+
+                $fecha = Carbon::createFromFormat('d/m/Y', (string) $item->fecha);
+
+                // 🔥 FILTRO POR RANGO EN PHP
+                if ($fecha->between($inicio, $fin)) {
+                    $datos[] = [
+                        'fecha_tipo_cambio' => (string) $item->fecha,
+                        'compra'            => (float) $item->compra,
+                        'venta'             => (float) $item->venta,
+                    ];
+                }
             }
 
             return [

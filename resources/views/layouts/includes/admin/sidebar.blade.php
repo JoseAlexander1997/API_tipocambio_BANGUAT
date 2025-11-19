@@ -12,6 +12,13 @@
             'icon' => 'fa-solid fa-exchange-alt',
             'href' => route('admin.tipo-cambio.index'),
             'active' => request()->routeIs('admin.dashboard'),
+        ],
+
+        [
+            'name' => 'Tipo cambio por rango',
+            'icon' => 'fa-solid fa-exchange-alt',
+            'href' => route('admin.tipo-cambio-rango.index'),
+            'active' => request()->routeIs('admin.dashboard'),
         ]
 
         

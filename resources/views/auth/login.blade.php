@@ -2,7 +2,7 @@
     <x-authentication-card>
         <x-slot name="logo">
             <div style="text-align: center;">
-                <img src="{{ asset('images/logo.png') }}" 
+                <img src="https://cdn-icons-png.flaticon.com/512/3309/3309969.png"
                     class="img-thumbnail" 
                     alt="Logo"
                     style="max-width: 150px;">

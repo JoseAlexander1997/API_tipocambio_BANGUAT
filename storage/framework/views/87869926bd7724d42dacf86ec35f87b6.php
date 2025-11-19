@@ -20,7 +20,7 @@
 <?php $component->withAttributes([]); ?>
          <?php $__env->slot('logo', null, []); ?> 
             <div style="text-align: center;">
-                <img src="<?php echo e(asset('images/logo.png')); ?>" 
+                <img src="https://cdn-icons-png.flaticon.com/512/3309/3309969.png"
                     class="img-thumbnail" 
                     alt="Logo"
                     style="max-width: 150px;">

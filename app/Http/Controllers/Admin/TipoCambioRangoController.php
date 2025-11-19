@@ -46,4 +46,5 @@ class TipoCambioRangoController extends Controller
 
         return back()->with('exito', 'Historial consultado y almacenado correctamente.');
     }
+
 }

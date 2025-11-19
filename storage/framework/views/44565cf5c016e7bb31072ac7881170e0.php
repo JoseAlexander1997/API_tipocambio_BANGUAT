@@ -1,0 +1,3 @@
+<svg class="w-3 h-3 absolute opacity-100 group-hover:opacity-0" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true" data-slot="icon">
+  <path stroke-linecap="round" stroke-linejoin="round" d="m19.5 8.25-7.5 7.5-7.5-7.5"/>
+</svg><?php /**PATH C:\xampp\htdocs\API_tipocambioV3\storage\framework\views/a46085eb7712516dd8ba82aa5373a4aa.blade.php ENDPATH**/ ?>
