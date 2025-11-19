@@ -27,6 +27,9 @@
             </div>
          <?php $__env->endSlot(); ?>
 
+        <p class="text-center font-bold not-italic dark:text-sky-400/100 text-xl"> Consumo de API del Banco de Guatemala</p>
+        <p class="text-center font-bold not-italic dark:text-sky-400/100 text-md"> Alexander Hernandez</p><br>
+
         <?php if (isset($component)) { $__componentOriginalb24df6adf99a77ed35057e476f61e153 = $component; } ?>
 <?php if (isset($attributes)) { $__attributesOriginalb24df6adf99a77ed35057e476f61e153 = $attributes; } ?>
 <?php $component = Illuminate\View\AnonymousComponent::resolve(['view' => 'components.validation-errors','data' => ['class' => 'mb-4']] + (isset($attributes) && $attributes instanceof Illuminate\View\ComponentAttributeBag ? $attributes->all() : [])); ?>

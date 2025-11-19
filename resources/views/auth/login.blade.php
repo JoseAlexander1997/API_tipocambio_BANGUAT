@@ -9,6 +9,9 @@
             </div>
         </x-slot>
 
+        <p class="text-center font-bold not-italic dark:text-sky-400/100 text-xl"> Consumo de API del Banco de Guatemala</p>
+        <p class="text-center font-bold not-italic dark:text-sky-400/100 text-md"> Alexander Hernandez</p><br>
+
         <x-validation-errors class="mb-4" />
 
         @session('status')

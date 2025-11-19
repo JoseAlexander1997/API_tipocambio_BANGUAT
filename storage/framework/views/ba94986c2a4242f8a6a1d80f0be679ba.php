@@ -1,30 +1,27 @@
 <?php
-    $links = [
-        [
-            'name' => 'Dashboard',
-            'icon' => 'fa-solid fa-gauge',
-            'href' => route('admin.dashboard'),
-            'active' => request()->routeIs('admin.dashboard'),
-        ],
+  $links = [
+    [
+        'name' => 'Dashboard',
+        'icon' => 'fa-solid fa-gauge',
+        'href' => route('admin.dashboard'),
+        'active' => request()->routeIs('admin.dashboard'),
+    ],
 
-        [
-            'name' => 'Tipo cambio del día',
-            'icon' => 'fa-solid fa-exchange-alt',
-            'href' => route('admin.tipo-cambio.index'),
-            'active' => request()->routeIs('admin.dashboard'),
-        ],
+    [
+        'name' => 'Tipo cambio del día',
+        'icon_img' => 'https://cdn-icons-png.flaticon.com/128/6342/6342080.png',
+        'href' => route('admin.tipo-cambio.index'),
+        'active' => request()->routeIs('admin.tipo-cambio.index'),
+    ],
 
-        [
-            'name' => 'Tipo cambio por rango',
-            'icon' => 'fa-solid fa-exchange-alt',
-            'href' => route('admin.tipo-cambio-rango.index'),
-            'active' => request()->routeIs('admin.dashboard'),
-        ]
+    [
+        'name' => 'Tipo cambio por rango',
+        'icon' => 'fa-solid fa-exchange-alt',
+        'href' => route('admin.tipo-cambio-rango.index'),
+        'active' => request()->routeIs('admin.tipo-cambio-rango.index'),
+    ]
+];
 
-        
-
-       
-    ];
 ?>
 
 <aside id="logo-sidebar"
@@ -67,13 +64,25 @@
 
                             
                         <?php else: ?>
-                            <a href="<?php echo e($link['href']); ?>"
-                                class="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group <?php echo e($link['active'] ? 'bg-gray-100' : ''); ?>">
-                                <span class="w-6 h-6 inline-flex justify-center items-center text-gray-500">
-                                    <i class="<?php echo e($link['icon']); ?>"></i>
+                           <a href="<?php echo e($link['href']); ?>"
+                                class="flex items-center p-2 rounded-lg
+                                    text-gray-900 dark:text-gray-900
+                                    bg-yellow-200 dark:bg-yellow-500
+                                    hover:bg-yellow-300 dark:hover:bg-yellow-600
+                                    group <?php echo e($link['active'] ? 'bg-yellow-400 dark:bg-yellow-700' : ''); ?>">
+
+                                <span class="w-6 h-6 inline-flex justify-center items-center text-gray-700">
+                                    <?php if(isset($link['icon_img'])): ?>
+                                        <img src="<?php echo e($link['icon_img']); ?>" class="w-8 h-6" alt="">
+                                    <?php elseif(isset($link['icon'])): ?>
+                                        <i class="<?php echo e($link['icon']); ?>"></i>
+                                    <?php endif; ?>
                                 </span>
+
                                 <span class="ms-3"><?php echo e($link['name']); ?></span>
                             </a>
+
+                               
                         <?php endif; ?>
                     <?php endif; ?>
                 </li>
